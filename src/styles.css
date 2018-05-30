@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin:0;
+    background-color: lightgray;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+mat-sidenav {
+    width: 300px;
+    background-color: whitesmoke;
+    padding: 1%;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.flex-1 {
+    flex:1;
+}
+
+.flex-2 {
+    flex:2;
+}
