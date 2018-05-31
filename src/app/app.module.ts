@@ -24,7 +24,7 @@ import { HighchartBarComponent } from './highchart-bar/highchart-bar.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
