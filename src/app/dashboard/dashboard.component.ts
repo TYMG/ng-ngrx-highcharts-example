@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SchoolData } from '../shared/model/school-data'; 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
