@@ -15,6 +15,7 @@ import { MapComponent } from './map/map.component';
 import { SesDisadvantagedComponent } from './ses-disadvantaged/ses-disadvantaged.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HighchartBarComponent } from './highchart-bar/highchart-bar.component';
+import { DataCardComponent } from './shared/components/data-card/data-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HighchartBarComponent } from './highchart-bar/highchart-bar.component';
     MapComponent,
     SesDisadvantagedComponent,
     DashboardComponent,
-    HighchartBarComponent
+    HighchartBarComponent,
+    DataCardComponent
   ],
   imports: [
     BrowserModule,
