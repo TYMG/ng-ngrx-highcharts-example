@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SchoolData } from '../shared/model/school-data'; 
+import { SchoolDataService } from '../shared/services/school-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,9 +10,20 @@ import { SchoolData } from '../shared/model/school-data';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private schoolDataService: SchoolDataService) { }
+
+  localSchoolData: SchoolData;
+  nationalSchoolData: SchoolData;
 
   ngOnInit() {
+  }
+
+  getSchoolData(): void {
+    this.schoolDataService.getSchoolData()
+      .subscribe(schoolData => {
+        this.localSchoolData = schoolData[0];
+        this.localSchoolData = schoolData[1];
+      })
   }
 
 }

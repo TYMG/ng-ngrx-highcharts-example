@@ -1,0 +1,28 @@
+#dashboard-main{
+    padding:1%;
+}
+
+#dashboard-filters {
+    padding: 1% 0;
+}
+
+#dashboard-cards {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+}
+
+#dashboard-cards > mat-card {
+    flex:1;
+    margin:10px 25px 10px 0;
+    flex-basis: 25%;  /*May not work on most browsers */
+}
+
+.display-card-title{
+    font-size: 1em;
+}
+
+.display-num {
+    font-size: 4em;
+}
