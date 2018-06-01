@@ -15,6 +15,7 @@ export class InMemoryDataService implements InMemoryDbService {
                     { fieldName: 'SES', value: 132 },
                     { fieldName: 'Rural Indicator - Birth County', value: 7200 },
                     { fieldName: 'First Gen Student', value: 200 },
+                    { fieldName: 'Self Described Disadvantage Status', value:'N/A'},
                     { fieldName: 'Fee Assistance', value: 632 }
                 ]
             },
@@ -30,6 +31,7 @@ export class InMemoryDataService implements InMemoryDbService {
                     { fieldName: 'SES', value: 132 },
                     { fieldName: 'Rural Indicator - Birth County', value: 7100 },
                     { fieldName: 'First Gen Student', value: 500 },
+                    { fieldName: 'Self Described Disadvantage Status', value:'N/A'},                    
                     { fieldName: 'Fee Assistance', value: 332 }
                 ]
             }]

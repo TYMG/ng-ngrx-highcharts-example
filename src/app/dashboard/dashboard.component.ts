@@ -16,13 +16,15 @@ export class DashboardComponent implements OnInit {
   nationalSchoolData: SchoolData;
 
   ngOnInit() {
+    this.getSchoolData();
+    console.log(this.localSchoolData);
   }
 
   getSchoolData(): void {
     this.schoolDataService.getSchoolData()
       .subscribe(schoolData => {
         this.localSchoolData = schoolData[0];
-        this.localSchoolData = schoolData[1];
+        this.nationalSchoolData = schoolData[1];
       })
   }
 

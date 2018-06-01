@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable({ providedIn: 'root' })
 export class SchoolDataService {
-    private schoolDataUrl = 'api/school';
+    private schoolDataUrl = 'api/schools';
 
     constructor (
         private http: HttpClient
