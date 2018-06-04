@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+body {
+    margin:0;
+    background-color: lightgray;
+    width: 100%;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+mat-sidenav {
+    width: 300px;
+    background-color: whitesmoke;
+    padding: 1%;
+}
+
+.no-margin-left {
+    margin-left: 0;
+}
+
+.border-purple{
+    border-color: rebeccapurple;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.flow-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-1 {
+    flex:1;
+}
+
+.flex-2 {
+    flex:2;
+}
+
+.increase{
+    color: green;
+    font-weight:bold
+}

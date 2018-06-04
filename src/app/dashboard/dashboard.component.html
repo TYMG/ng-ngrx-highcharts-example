@@ -1,3 +1,38 @@
-<p>
-  dashboard works!
-</p>
+<div id='dashboard-main'>
+	<div id='dashboard-title'>
+		<mat-toolbar>
+			<span>My Application</span>
+		</mat-toolbar>
+	</div>
+	<div id='dashboard-filters'>
+		<mat-chip-list #chipList>
+			<mat-chip selectable="true" removable="true" class="border-purple">
+				Accepted (Application Status)
+				<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+			</mat-chip>
+			<mat-chip color="primary">
+				Female
+			</mat-chip>
+			<mat-chip color="primary">
+				In-State
+			</mat-chip>
+		</mat-chip-list>
+	</div>
+	<div id='dashboard-cards'>
+		<data-card *ngFor="let localSchoolDataField of schoolData" [dataField]="localSchoolDataField">
+		</data-card>
+		<!--<mat-card *ngFor="let localSchoolDataField of localSchoolData.schoolData">
+			<mat-card-subtitle class='display-card-title'>{{localSchoolDataField.fieldName}}</mat-card-subtitle>
+			<mat-card-content style='text-align:center'>
+				<span class='display-num increase'>{{localSchoolDataField.value}}</span>
+			</mat-card-content>
+			<mat-card-subtitle class='display-card-title'>
+				<div class='flow-row'>
+					<span class='increase'>6%</span>&nbsp;from 2017
+					<div class="flex-2"></div>
+					<a href='#'>View More Details >></a>
+				</div>
+			</mat-card-subtitle>
+		</mat-card>-->
+	</div>
+</div>

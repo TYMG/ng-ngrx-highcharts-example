@@ -1,24 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div id="main">
-	<div id="header">
-		<div>
-			<mat-toolbar color="primary">
-				<h1>AAMC</h1>
-			</mat-toolbar>
-		</div>
-		<div class="flex-2" style="background-color:pink"></div>
-		<div>
-			<mat-menu #appMenu="matMenu">
-				<button mat-menu-item>Settings</button>
-				<button mat-menu-item>Help</button>
-			</mat-menu>
+	<header>
+		<div id="header">
+			<div>
+				<mat-toolbar color="primary">
+					<h1>AAMC</h1>
+				</mat-toolbar>
+			</div>
+			<div class="flex-2" style="background-color:pink"></div>
+			<div class='flex-1'>
+				<mat-menu #appMenu="matMenu">
+					<button mat-menu-item>Settings</button>
+					<button mat-menu-item>Help</button>
+				</mat-menu>
 
-			<button mat-icon-button [matMenuTriggerFor]="appMenu">
+				<button mat-icon-button [matMenuTriggerFor]="appMenu">
 				<mat-icon>more_vert</mat-icon>
 			</button>
+			</div>
 		</div>
-	</div>
-
+	</header>
 	<mat-sidenav-container class="flex-1">
 		<mat-sidenav mode="side" opened>
 			<div id="side-nav" class="flex-col">
@@ -34,6 +35,7 @@
 		<mat-sidenav-content>
 			<router-outlet></router-outlet>
 		</mat-sidenav-content>
+		<mat-sidenav position="end" mode="side" opened style='background-color:lightgrey'></mat-sidenav>
 	</mat-sidenav-container>
 	<mat-toolbar class="example-footer">Footer</mat-toolbar>
 </div>

@@ -1,0 +1,18 @@
+mat-card {
+    flex:1;
+    margin:10px 15px 10px 15px;
+    height:150px;
+    width:250px;
+}
+
+.display-card-title{
+    font-size: 1em;
+}
+
+.display-card-subtitle{
+    font-size: .75em;
+}
+
+.display-num {
+    font-size: 5em;
+}
