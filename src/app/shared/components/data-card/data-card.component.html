@@ -1,3 +1,13 @@
-<p>
-  data-card works!
-</p>
+<mat-card>
+	<mat-card-subtitle class='display-card-title'>{{dataField.fieldName}}</mat-card-subtitle>
+	<mat-card-content style='text-align:center'>
+		<span class='display-num increase'>{{dataField.value}}</span>
+	</mat-card-content>
+	<mat-card-subtitle class='display-card-title'>
+		<div class='flow-row'>
+			<span class='increase'>6%</span>&nbsp;from 2017
+			<div class="flex-2"></div>
+			<a href='#'>View More Details >></a>
+		</div>
+	</mat-card-subtitle>
+</mat-card>

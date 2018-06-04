@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SchoolData } from '../shared/model/school-data'; 
+import { SchoolData, DataField } from '../shared/model/school-data'; 
 import { SchoolDataService } from '../shared/services/school-data.service';
 
 @Component({
@@ -13,18 +13,19 @@ export class DashboardComponent implements OnInit {
   constructor(private schoolDataService: SchoolDataService) { }
 
   localSchoolData: SchoolData;
+  schoolData: DataField[];
   nationalSchoolData: SchoolData;
 
   ngOnInit() {
     this.getSchoolData();
-    console.log(this.localSchoolData);
   }
 
   getSchoolData(): void {
     this.schoolDataService.getSchoolData()
       .subscribe(schoolData => {
-        this.localSchoolData = schoolData[0];
-        this.nationalSchoolData = schoolData[1];
+        this.localSchoolData = schoolData;
+        this.schoolData = this.localSchoolData.schoolData;
+        //this.nationalSchoolData = schoolData[1];
       })
   }
 

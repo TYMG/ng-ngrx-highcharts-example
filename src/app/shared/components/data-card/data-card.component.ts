@@ -1,11 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { DataField } from '../../model/school-data';
 
 @Component({
-  selector: 'app-data-card',
+  selector: 'data-card',
   templateUrl: './data-card.component.html',
   styleUrls: ['./data-card.component.css']
 })
 export class DataCardComponent implements OnInit {
+
+  @Input('dataField')
+  dataField:DataField;
 
   constructor() { }
 

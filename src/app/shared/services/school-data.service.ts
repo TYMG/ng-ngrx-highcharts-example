@@ -12,14 +12,24 @@ const httpOptions = {
 
 @Injectable({ providedIn: 'root' })
 export class SchoolDataService {
-    private schoolDataUrl = 'api/schools';
+    private schoolDataUrl = 'api/school';
+    private nationalDataUrl = 'api/national';
+
 
     constructor (
         private http: HttpClient
     ){}
 
-    getSchoolData (): Observable<SchoolData[]> {
-        return this.http.get<SchoolData[]>(this.schoolDataUrl)
+    getSchoolData (): Observable<SchoolData> {
+        return this.http.get<SchoolData>(this.schoolDataUrl)
+            .pipe(
+                tap(schoolData => console.log(`fetched school`)),
+                catchError(this.handleError('getSchoolData',[]))
+            );
+    }
+
+    getNationalSchoolData (): Observable<SchoolData> {
+        return this.http.get<SchoolData>(this.schoolDataUrl)
             .pipe(
                 tap(schoolData => console.log(`fetched school`)),
                 catchError(this.handleError('getSchoolData',[]))

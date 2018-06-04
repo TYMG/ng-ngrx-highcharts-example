@@ -5,7 +5,7 @@ export class SchoolData {
   schoolData: DataField[];
 }
 
-class DataField {
+export class DataField {
     fieldName:string
     value:number;
 }
