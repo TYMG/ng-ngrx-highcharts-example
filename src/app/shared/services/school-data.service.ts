@@ -20,7 +20,7 @@ export class SchoolDataService {
         private http: HttpClient
     ){}
 
-    getSchoolData (): Observable<SchoolData> {
+    getSchoolData(): Observable<SchoolData> {
         return this.http.get<SchoolData>(this.schoolDataUrl)
             .pipe(
                 tap(schoolData => console.log(`fetched school`)),
@@ -28,8 +28,8 @@ export class SchoolDataService {
             );
     }
 
-    getNationalSchoolData (): Observable<SchoolData> {
-        return this.http.get<SchoolData>(this.schoolDataUrl)
+    getNationalSchoolData(): Observable<SchoolData> {
+        return this.http.get<SchoolData>(this.nationalDataUrl)
             .pipe(
                 tap(schoolData => console.log(`fetched school`)),
                 catchError(this.handleError('getSchoolData',[]))

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import * as SchoolDataActions from './state/school-data/actions/school-data-actions';
+import * as fromRoot from './state/school-data/reducers/index';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +11,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constuctor(private store: Store<fromRoot.State>){
+    this.store.dispatch(new SchoolDataActions.LoadSchoolData());
+  }
 }
