@@ -21,18 +21,20 @@ export class SchoolDataService {
     ){}
 
     getSchoolData(): Observable<SchoolData> {
-        return this.http.get<SchoolData>(this.schoolDataUrl)
+        const url = `${this.schoolDataUrl}/0`;
+        return this.http.get<SchoolData>(url)
             .pipe(
                 tap(schoolData => console.log(`fetched school`)),
-                catchError(this.handleError('getSchoolData',[]))
+                //catchError( _  => this.handleError('getSchoolData',[]))
             );
     }
 
     getNationalSchoolData(): Observable<SchoolData> {
-        return this.http.get<SchoolData>(this.nationalDataUrl)
+        const url = `${this.nationalDataUrl}/0`;
+        return this.http.get<SchoolData>(url)
             .pipe(
                 tap(schoolData => console.log(`fetched school`)),
-                catchError(this.handleError('getSchoolData',[]))
+                //catchError(this.handleError('getSchoolData',[]))
             );
     }
 

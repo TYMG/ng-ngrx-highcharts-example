@@ -5,6 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/services/in-memory-data.service';
 
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './state/school-data/reducers/index';
+
+import { EffectsModule } from '@ngrx/effects';
+import { SchoolDataEffects } from './state/school-data/effects/school-data-effects';
+
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { StateModule } from './state/state.module';
@@ -39,7 +46,9 @@ import { DataCardComponent } from './shared/components/data-card/data-card.compo
     ),
     MaterialModule,
     AppRoutingModule,
-    StateModule.forRoot()
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([SchoolDataEffects])
+
   ],
   providers: [],
   bootstrap: [AppComponent]
