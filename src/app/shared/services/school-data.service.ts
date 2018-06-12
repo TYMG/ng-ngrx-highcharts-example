@@ -21,16 +21,16 @@ export class SchoolDataService {
     ){}
 
     getSchoolData(): Observable<SchoolData> {
-        const url = `${this.schoolDataUrl}/0`;
+        const url = `${this.schoolDataUrl}`;
         return this.http.get<SchoolData>(url)
             .pipe(
                 tap(schoolData => console.log(`fetched school`)),
-                //catchError( _  => this.handleError('getSchoolData',[]))
+                //catchError(this.handleError('getSchoolData',[]))
             );
     }
 
     getNationalSchoolData(): Observable<SchoolData> {
-        const url = `${this.nationalDataUrl}/0`;
+        const url = `${this.nationalDataUrl}`;
         return this.http.get<SchoolData>(url)
             .pipe(
                 tap(schoolData => console.log(`fetched school`)),

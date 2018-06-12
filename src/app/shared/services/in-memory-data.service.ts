@@ -3,7 +3,6 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryDataService implements InMemoryDbService {
     createDb() {
         const school = {
-            id: 0,
             school: {
                 schoolId: 123,
                 schoolName: 'Dr Nick\'s Med School',
@@ -22,7 +21,6 @@ export class InMemoryDataService implements InMemoryDbService {
             }
         }
         let national = {
-            id: 0,
             school:
             {
                 schoolId: 0,

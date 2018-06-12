@@ -23,6 +23,7 @@ import { CustomSerializer } from "./shared/utils";
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([
       AppEffects,
+      SchoolDataEffects
     ]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],

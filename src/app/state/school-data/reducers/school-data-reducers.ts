@@ -6,13 +6,13 @@ import {
 } from "../actions/school-data-actions";
 
 export interface State {
-    schoolData: null;
-    nationalSchoolData: null;
+    schoolData: SchoolData;
+    nationalSchoolData: SchoolData;
 }
 
 const initialState: State = {
-    schoolData: null,
-    nationalSchoolData: null
+    schoolData: undefined,
+    nationalSchoolData: undefined
 };
 
 export function reducer(state: State = initialState, action: SchoolAction):State {

@@ -6,7 +6,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/services/in-memory-data.service';
 
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './state/school-data/reducers/index';
+import * as fromSchoolData from './state/school-data/reducers';
+//import { reducers } from './state/school-data/reducers/index';
 
 import { EffectsModule } from '@ngrx/effects';
 import { SchoolDataEffects } from './state/school-data/effects/school-data-effects';
@@ -23,6 +24,7 @@ import { SesDisadvantagedComponent } from './ses-disadvantaged/ses-disadvantaged
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HighchartBarComponent } from './highchart-bar/highchart-bar.component';
 import { DataCardComponent } from './shared/components/data-card/data-card.component';
+import { appReducer, appMetaReducers } from './state/app.reducer'
 
 @NgModule({
   declarations: [
@@ -46,8 +48,10 @@ import { DataCardComponent } from './shared/components/data-card/data-card.compo
     ),
     MaterialModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([SchoolDataEffects])
+    StateModule/*,
+    StoreModule.forRoot(appReducer, { metaReducers: appMetaReducers }),
+    StoreModule.forFeature('schoolData', fromSchoolData.reducers),
+    EffectsModule.forRoot([SchoolDataEffects])*/
 
   ],
   providers: [],
