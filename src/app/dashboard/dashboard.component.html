@@ -19,7 +19,7 @@
 		</mat-chip-list>
 	</div>
 	<div id='dashboard-cards'>
-		<data-card *ngFor="let localSchoolDataField of schoolData" [dataField]="localSchoolDataField">
+		<data-card *ngFor="let localSchoolDataField of (localSchoolData$ | async)?.schoolData" [dataField]="localSchoolDataField">
 		</data-card>
 		<!--<mat-card *ngFor="let localSchoolDataField of localSchoolData.schoolData">
 			<mat-card-subtitle class='display-card-title'>{{localSchoolDataField.fieldName}}</mat-card-subtitle>

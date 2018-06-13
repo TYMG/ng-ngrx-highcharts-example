@@ -5,7 +5,7 @@ import { AppState } from "../../app.interface";
 import * as schoolDataReducer from './school-data-reducers';
 
 export interface SchoolDataState {
-     schoolData: schoolDataReducer.State;
+    schoolData: schoolDataReducer.State;
 }
 
 export const reducers = {
@@ -14,8 +14,14 @@ export const reducers = {
 
 export const getSchoolDataState = createFeatureSelector<schoolDataReducer.State>('schoolData');
 
-export const getLocalSchoolState = createSelector (
+export const getLocalSchoolState = createSelector(
     getSchoolDataState,
     schoolDataReducer.getSchoolData
+);
+
+export const getSchoolDataField = createSelector(
+    getLocalSchoolState, school => {
+        return school.schoolData
+    }
 );
 
