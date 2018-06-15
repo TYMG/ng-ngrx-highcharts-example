@@ -1,11 +1,14 @@
 import { routerReducer } from "@ngrx/router-store";
 import { ActionReducer, ActionReducerMap, MetaReducer } from "@ngrx/store";
 import { storeFreeze } from "ngrx-store-freeze";
+
+import * as fromSpinner from "./shared/reducers/spinner.reducer"
 import { environment } from "../../environments/environment";
 import { AppState } from "./app.interface";
 
 export const appReducer: ActionReducerMap<AppState> = {
-  router: routerReducer
+  router: routerReducer,
+  spinner: fromSpinner.reducer
 };
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {

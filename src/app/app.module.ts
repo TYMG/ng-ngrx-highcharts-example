@@ -17,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { StateModule } from './state/state.module';
 import { AppRoutingModule } from './app-routing.module';
-
+import { AppGuard } from './app.guard';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { SesDisadvantagedComponent } from './ses-disadvantaged/ses-disadvantaged.component';
@@ -44,7 +44,7 @@ import { appReducer, appMetaReducers } from './state/app.reducer'
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+      InMemoryDataService
     ),
     MaterialModule,
     AppRoutingModule,
@@ -54,7 +54,7 @@ import { appReducer, appMetaReducers } from './state/app.reducer'
     EffectsModule.forRoot([SchoolDataEffects])*/
 
   ],
-  providers: [],
+  providers: [AppGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

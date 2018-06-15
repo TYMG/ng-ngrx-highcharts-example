@@ -7,6 +7,7 @@ import { SchoolData, DataField } from '../shared/model/school-data';
 import { SchoolDataService } from '../shared/services/school-data.service';
 import * as SchoolDataActions from '../state/school-data/actions/school-data-actions';
 import * as fromStore from '../state/school-data/reducers';
+import { isSpinnerShowing } from '../state/shared/reducers'
 
 @Component({
   selector: 'app-dashboard',
@@ -19,9 +20,12 @@ export class DashboardComponent implements OnInit {
   schoolData: DataField[];
   nationalSchoolData: SchoolData;
   localSchoolData$: Observable<SchoolData>;
+  loading$: Observable<boolean>;
+
 
   constructor(private localStore: Store<fromStore.SchoolDataState>) {
     //this.localSchoolData$ = this.localStore.select(fromStore.getLocalSchoolState);
+    this.loading$ = localStore.pipe(select(isSpinnerShowing));
     this.localSchoolData$ = localStore.pipe(select(fromStore.getLocalSchoolState)) as Observable<SchoolData>;
 
 /*    this.localSchoolData$.subscribe(data => {

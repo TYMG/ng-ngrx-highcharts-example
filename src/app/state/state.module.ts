@@ -14,41 +14,45 @@ import { environment } from '../../environments/environment'; // Angular CLI env
 import { CustomSerializer } from "./shared/utils";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    StoreModule.forRoot( appReducer, {
-      metaReducers: appMetaReducers
-    }),
-    StoreModule.forFeature('schoolData', fromSchoolData.reducer),
-    StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([
-      AppEffects,
-      SchoolDataEffects
-    ]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-  ],
-  declarations: []
+    imports: [
+        CommonModule,
+        StoreModule.forRoot(appReducer, {
+            metaReducers: appMetaReducers
+        }),
+        StoreModule.forFeature('schoolData', fromSchoolData.reducer),
+        StoreRouterConnectingModule.forRoot(
+            { stateKey: 'router' }
+        ),
+        EffectsModule.forRoot([
+            AppEffects,
+        ]),
+        EffectsModule.forFeature([
+            SchoolDataEffects
+        ]),
+        !environment.production ? StoreDevtoolsModule.instrument() : [],
+    ],
+    declarations: []
 })
 
 export class StateModule {
 
-  constructor( @Optional() @SkipSelf() parentModule: StateModule) {
-    if (parentModule) {
-      throw new Error(
-        'StateModule is already loaded. Import it in the AppModule only');
-    }
-  }
-
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: StateModule,
-      providers: [
-        {
-          provide: RouterStateSerializer,
-          useClass: CustomSerializer
+    constructor( @Optional() @SkipSelf() parentModule: StateModule) {
+        if (parentModule) {
+            throw new Error(
+                'StateModule is already loaded. Import it in the AppModule only');
         }
-      ]
-    };
-  }
+    }
+
+    static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: StateModule,
+            providers: [
+                {
+                    provide: RouterStateSerializer,
+                    useClass: CustomSerializer
+                }
+            ]
+        };
+    }
 
 }
