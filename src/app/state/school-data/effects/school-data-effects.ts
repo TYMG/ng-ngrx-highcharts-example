@@ -35,13 +35,23 @@ export class SchoolDataEffects {
 
     @Effect()
     showSpinner: Observable<Action> = this.actions$
-        .ofType<showSpinnerTypes>(...showSpinnerActions)
+        .ofType<SchoolDataActions.LoadData>(SchoolDataActions.LOAD_DATA)
         .pipe(map( _ => new ShowSpinner()));
 
     @Effect()
     hideSpinner: Observable<Action> = this.actions$
-        .ofType<hideSpinnerTypes>(...hideSpinnerActions)
+        .ofType<SchoolDataActions.LoadDataSuccess>(SchoolDataActions.LOAD_DATA_SUCCESS)
         .pipe(map( _ => new HideSpinner()));
+
+    @Effect()
+    retrieveData$: Observable<Action> = this.actions$.ofType<SchoolDataActions.LoadData>(SchoolDataActions.LOAD_DATA)
+        .pipe(
+            switchMap( _ => this.schoolDataService.getSchoolData()), //With Pipe() the value of this line will be pushed to the next line
+            map((schoolData:SchoolData) => new SchoolDataActions.LoadSchoolDataSuccess(schoolData)),
+            switchMap( _ => this.schoolDataService.getNationalSchoolData()), //With Pipe() the value of this line will be pushed to the next line
+            map((nationalSchoolData:SchoolData) => new SchoolDataActions.LoadNationalDataSuccess(nationalSchoolData)),
+            map( _ => new SchoolDataActions.LoadDataSuccess())
+        );
 
     @Effect()
     retrieveSchoolData$: Observable<Action> = this.actions$.ofType<SchoolDataActions.LoadSchoolData>(SchoolDataActions.LOAD_SCHOOL_DATA)

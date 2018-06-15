@@ -17,7 +17,8 @@ import { isSpinnerShowing } from '../state/shared/reducers'
 export class DashboardComponent implements OnInit {
 
   localSchoolData: SchoolData;
-  schoolData: DataField[];
+  schoolDataFields$: Observable<DataField[]>;
+  dataFields: DataField[];
   nationalSchoolData: SchoolData;
   localSchoolData$: Observable<SchoolData>;
   loading$: Observable<boolean>;
@@ -25,12 +26,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(private localStore: Store<fromStore.SchoolDataState>) {
     //this.localSchoolData$ = this.localStore.select(fromStore.getLocalSchoolState);
-    this.loading$ = localStore.pipe(select(isSpinnerShowing));
     this.localSchoolData$ = localStore.pipe(select(fromStore.getLocalSchoolState)) as Observable<SchoolData>;
 
-/*    this.localSchoolData$.subscribe(data => {
-       this.schoolData = data.schoolData
-    });*/
+    /*    this.localSchoolData$.subscribe(data => {
+           this.schoolData = data.schoolData
+        });*/
     console.log(this.localSchoolData$);
     // this.localStore.pipe(
     //   select(fromStore.getLocalSchoolState),
@@ -38,15 +38,16 @@ export class DashboardComponent implements OnInit {
     //     console.log(retrieveSchoolData);
     //     return null;
     //   }));
-    this.localStore.pipe(
-      select(fromStore.getSchoolDataField),
-      map((retrievedSchoolDataField: DataField[]) => this.schoolData = retrievedSchoolDataField));
+    this.schoolDataFields$ = this.localStore.pipe(select(fromStore.getSchoolDataField)) as Observable<DataField[]>;
+
+    this.localStore.pipe(select(fromStore.getSchoolDataField),
+      map((retrievedSchoolDataField: DataField[]) => this.dataFields = retrievedSchoolDataField));
   }
 
   ngOnInit() {
     // this.localStore.pipe(
     //   select(fromStore.getLocalSchoolState),
     //   map((retrieveSchoolData: SchoolData) => this.localSchoolData = retrieveSchoolData));
-    
+
   }
 }

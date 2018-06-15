@@ -5,7 +5,7 @@ export interface State {
 }
 
 const initialState: State = {
-    show: false
+    show: true
 };
 
 export function reducer(state: State = initialState, actions: SpinnerAction) {

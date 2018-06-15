@@ -21,7 +21,7 @@ export const getLocalSchoolState = createSelector(
 
 export const getSchoolDataField = createSelector(
     getLocalSchoolState, school => {
-        return school.schoolData
+        return school.schoolDataFields
     }
 );
 
