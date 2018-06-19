@@ -17,7 +17,9 @@
       "dom"
     ],
     "types":[
-      "highcharts"
+     "node",
+     "jquery",
+     "highcharts"
     ]
   }
 }
