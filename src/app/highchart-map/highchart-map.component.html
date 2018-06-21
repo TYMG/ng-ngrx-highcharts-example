@@ -1,7 +1,18 @@
-<div style="text-align:center">
-  <h1> Welcome to {{ title }}!</h1>
-</div>
-
-<div id="applicantPoolByStateAndRegionContainer">
-   chart target
+<div class="ng-route-container">
+	<div class="ng-route-content">
+		<div style="text-align:center">
+			<h1> Welcome to {{ title }}!</h1>
+		</div>
+		<div id="applicantPoolByStateAndRegionContainer">
+			chart target
+		</div>
+		<div id="map-datacards">
+			<data-card class="flex-1" [dataField]="test">
+			</data-card>
+			<data-card [dataField]="test">
+			</data-card>
+			<data-card [dataField]="test">
+			</data-card>
+		</div>
+	</div>
 </div>

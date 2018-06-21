@@ -37,9 +37,11 @@
 			<div *ngIf="loading$ | async ; else showRouter">
 				<mat-spinner></mat-spinner>
 			</div>
-			<ng-template #showRouter>
-				<router-outlet></router-outlet>
-			</ng-template>
+			<div class="main-route">
+				<ng-template #showRouter>
+					<router-outlet></router-outlet>
+				</ng-template>
+			</div>
 		</mat-sidenav-content>
 		<mat-sidenav position="end" mode="side" opened style='background-color:lightgrey'></mat-sidenav>
 	</mat-sidenav-container>

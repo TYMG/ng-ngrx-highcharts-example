@@ -1,0 +1,10 @@
+#map-datacards {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+}
+
+#map-datacards > data-card {
+    flex-basis: 33%;  /*May not work on most browsers */
+}

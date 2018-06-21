@@ -11,6 +11,10 @@
     flex-direction: row;
 }
 
+mat-sidenav-container {
+   background-color: lightgray; 
+}
+
 #user-dd{
     flex: 1;
 }
@@ -18,7 +22,6 @@
 #content {
     flex: 1;
 }
-
 
 .deep-purple{
     background-color: purple;
@@ -36,3 +39,4 @@
 .example-footer {
     background-color: red;
 }
+

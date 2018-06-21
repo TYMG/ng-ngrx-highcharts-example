@@ -10,6 +10,9 @@ import * as Highcharts from 'highcharts';
 
 import * as HC_map from 'highcharts/modules/map';
 
+import { DataField } from '../shared/model/school-data';
+import { MapDataService } from '../shared/services/map-data.service';
+
 
 @Component({
   selector: 'app-map',
@@ -19,6 +22,7 @@ import * as HC_map from 'highcharts/modules/map';
 export class HighchartMapComponent implements OnInit {
   title = 'Highcharts Demo';
   map: any;
+  test: DataField;
 
   ngAfterContentInit() {
     //Called after ngOnInit when the component's or directive's content has been initialized.
@@ -26,7 +30,9 @@ export class HighchartMapComponent implements OnInit {
   }
 
 
-  constructor() {
+  constructor(private mapDataService: MapDataService) {
+    this.test = { fieldName: 'Military Experience', value: 100 };
+
     var Highcharts = require('highcharts/highstock');
     require('highcharts/modules/map')(Highcharts);
     require('highcharts/modules/drilldown')(Highcharts);
@@ -40,11 +46,17 @@ export class HighchartMapComponent implements OnInit {
     };
 
     $q.all([
-      $.getJSON('https://code.highcharts.com/mapdata/countries/us/us-all.geo.json', function (data) {
-        mapData.national = data;
+      this.mapDataService.retrieveNationalMapData().subscribe((nationalMapData) => {
+        console.log(nationalMapData);
+        mapData.national = nationalMapData;
       }),
-      $.getJSON('https://code.highcharts.com/mapdata/countries/us/us-all-all.geo.json', function (data) {
-        mapData.county = data;
+      this.mapDataService.retrieveNationalCountyMapDataAssets().subscribe((nationalCountyMapData) => {
+        console.log(nationalCountyMapData);
+        mapData.national = nationalCountyMapData;
+      }),
+       this.mapDataService.retrieveNationalCountyMapDataLocalHost().subscribe((nationalCountyMapData) => {
+        console.log(nationalCountyMapData);
+        mapData.national = nationalCountyMapData;
       }),
       $.getJSON('https://cdn.rawgit.com/highcharts/highcharts/v6.0.4/samples/data/us-counties-unemployment.json', function (data) {
         mapData.unemployment = data;
@@ -68,15 +80,15 @@ export class HighchartMapComponent implements OnInit {
           marginTop: 75,
           marginBottom: 75,
           events: {
-            drilldown: function(e) {
+            drilldown: function (e) {
               if (!e.seriesOptions) {
                 var chart = this,
                   mapKey = 'countries/us/' + e.point.drilldown + '-all',
                   // Handle error, the timeout is cleared on success
-                  fail = setTimeout(function() {
+                  fail = setTimeout(function () {
                     if (!Highcharts.maps[mapKey]) {
                       chart.showLoading('<i class="icon-frown"></i> Failed loading ' + e.point.name);
-                      fail = setTimeout(function() {
+                      fail = setTimeout(function () {
                         chart.hideLoading();
                       }, 1000);
                     }
@@ -86,13 +98,13 @@ export class HighchartMapComponent implements OnInit {
                 chart.showLoading('<i class="icon-spinner icon-spin icon-3x"></i>'); // Font Awesome spinner
 
                 // Load the drilldown map
-                $.getJSON('https://code.highcharts.com/mapdata/' + mapKey + '.geo.json', function(mapData) {
+                $.getJSON('https://code.highcharts.com/mapdata/' + mapKey + '.geo.json', function (mapData) {
 
 
                   data = Highcharts.geojson(mapData);
 
                   // Set a non-random bogus value
-                  $.each(data, function(i) {
+                  $.each(data, function (i) {
                     this.value = i;
                   });
 
@@ -110,10 +122,10 @@ export class HighchartMapComponent implements OnInit {
                 });
               }
 
-              this.setTitle(null, {text: e.point.name});
+              this.setTitle(null, { text: e.point.name });
             },
-            drillup: function() {
-              this.setTitle(null, {text: ''});
+            drillup: function () {
+              this.setTitle(null, { text: '' });
             }
           }
         },
