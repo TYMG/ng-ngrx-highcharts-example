@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
+import { Observable, forkJoin } from 'rxjs';
+
 import * as $ from 'jquery';
 import { $q } from '@uirouter/angular';
 
@@ -39,31 +41,9 @@ export class HighchartMapComponent implements OnInit {
     require('highcharts/modules/exporting')(Highcharts);
     require('highcharts/modules/data')(Highcharts);
 
-    let mapData = {
-      national: {},
-      county: {},
-      unemployment: {}
-    };
-
-    $q.all([
-      this.mapDataService.retrieveNationalMapData().subscribe((nationalMapData) => {
-        console.log(nationalMapData);
-        mapData.national = nationalMapData;
-      }),
-      this.mapDataService.retrieveNationalCountyMapDataAssets().subscribe((nationalCountyMapData) => {
-        console.log(nationalCountyMapData);
-        mapData.national = nationalCountyMapData;
-      }),
-       this.mapDataService.retrieveNationalCountyMapDataLocalHost().subscribe((nationalCountyMapData) => {
-        console.log(nationalCountyMapData);
-        mapData.national = nationalCountyMapData;
-      }),
-      $.getJSON('https://cdn.rawgit.com/highcharts/highcharts/v6.0.4/samples/data/us-counties-unemployment.json', function (data) {
-        mapData.unemployment = data;
-      })
-    ]).then(data => {
-      var data = Highcharts.geojson(mapData.national),
-        separators = Highcharts.geojson(mapData.national, 'mapline'),
+    this.mapDataService.retrieveAllData().subscribe(mapData => {
+      var data = Highcharts.geojson(mapData[0]),
+        separators = Highcharts.geojson(mapData[0], 'mapline'),
         // Some responsiveness
         small = $('#applicantPoolByStateAndRegionContainer').width() < 400;
 
@@ -209,10 +189,7 @@ export class HighchartMapComponent implements OnInit {
           }
         }
       });
-
-
     });
-
   }
 
   ngOnInit() {

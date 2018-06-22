@@ -7,30 +7,36 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class MapDataService {
 
-  mapData: any;
+    constructor(private http: HttpClient) {
+    }
 
-  mapDataObservable: Observable<any>;
+    retrieveAllData():Observable<any> {
+        let mapData = {
+            national: {},
+            county: {},
+            unemployment: {}
+        }
+        return from($q.all([
+            $.getJSON('assets/us-all.geo.json', function(data) {
+                mapData.national = data;
+            }),
+            $.getJSON('assets/us-all-all.geo.json', function(data) {
+                mapData.county = data;
+            })
+        ]).then(data => {
+            return data;
+        }))
+    }
 
-  constructor(private http: HttpClient) {
-  }
-
-  retrieveNationalMapData(): Observable<any> {
-    return this.http.get('../../../assets/us-all-all.geo.json');
-
-  }
-  retrieveNationalCountyMapDataAssets(): Observable<any> {
-    return this.http.get('assets/us-all-all.geo.json');
-  }
-
-  retrieveNationalCountyMapDataLocalHost(): Observable<any> {
-    return this.http.get('http://localhost:4200/assets/us-all-all.geo.json');
-  }
+    retrieveNationalCountyMapDataLocalHost(): Observable<any> {
+        return this.http.get('http://localhost:4200/assets/us-all-all.geo.json');
+    }
 }
