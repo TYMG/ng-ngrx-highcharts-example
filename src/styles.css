@@ -54,3 +54,13 @@ mat-sidenav {
     color: green;
     font-weight:bold
 }
+
+.ng-route-container{
+   background-color: green;
+   height: 100%;
+}
+
+.ng-route-content{
+   background-color: green;
+   padding: 25px;
+}

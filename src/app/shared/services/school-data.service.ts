@@ -20,19 +20,21 @@ export class SchoolDataService {
         private http: HttpClient
     ){}
 
-    getSchoolData (): Observable<SchoolData> {
-        return this.http.get<SchoolData>(this.schoolDataUrl)
+    getSchoolData(): Observable<SchoolData> {
+        const url = `${this.schoolDataUrl}`;
+        return this.http.get<SchoolData>(url)
             .pipe(
                 tap(schoolData => console.log(`fetched school`)),
-                catchError(this.handleError('getSchoolData',[]))
+                //catchError(this.handleError('getSchoolData',[]))
             );
     }
 
-    getNationalSchoolData (): Observable<SchoolData> {
-        return this.http.get<SchoolData>(this.schoolDataUrl)
+    getNationalSchoolData(): Observable<SchoolData> {
+        const url = `${this.nationalDataUrl}`;
+        return this.http.get<SchoolData>(url)
             .pipe(
                 tap(schoolData => console.log(`fetched school`)),
-                catchError(this.handleError('getSchoolData',[]))
+                //catchError(this.handleError('getSchoolData',[]))
             );
     }
 

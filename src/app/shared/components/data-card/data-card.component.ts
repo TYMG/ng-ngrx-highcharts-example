@@ -12,7 +12,9 @@ export class DataCardComponent implements OnInit {
   @Input('dataField')
   dataField:DataField;
 
-  constructor() { }
+  constructor() {
+    console.log(this.dataField)
+   }
 
   ngOnInit() {
   }
