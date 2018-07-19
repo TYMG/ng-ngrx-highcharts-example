@@ -1,0 +1,22 @@
+footer.page-footer {
+  padding: 20px 0;
+  font-size: 13px;
+  color: #1f1f1f;
+  text-align: center;
+  background: #e7eaee;
+  border-top: 1px solid #dcdfe2;
+}
+
+ul {
+    margin:0;
+    list-style-type: none;
+}
+
+ul > li {
+    display: inline-block;
+    /* You can also add some margins here to make it look prettier */
+    zoom:1;
+    *display:inline;
+    /* this fix is needed for IE7- */
+    padding: 0 5px;
+}
