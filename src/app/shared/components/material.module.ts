@@ -30,7 +30,7 @@ import {
         MatListModule,
         MatDividerModule,
         MatChipsModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
     ],
     exports: [
         MatButtonModule,
@@ -45,7 +45,7 @@ import {
         MatListModule,
         MatDividerModule,
         MatChipsModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
     ]
 })
 export class MaterialModule { }

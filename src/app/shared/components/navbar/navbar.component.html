@@ -1,0 +1,13 @@
+<header class="page-header">
+	<div class="page-header-banner" fxLayout="row">
+		<a class="logo">AAMC</a>
+		<div fxFlex="85%"></div>
+		<div id="navbar__dd" fxFlexAlign="end">
+			<button mat-button [matMenuTriggerFor]="menu">Matt Green</button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item>Account</button>
+				<button mat-menu-item>Sign Off</button>
+			</mat-menu>
+		</div>
+	</div>
+</header>

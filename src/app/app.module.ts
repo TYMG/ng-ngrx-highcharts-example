@@ -1,22 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/services/in-memory-data.service';
 
-import { StoreModule } from '@ngrx/store';
 import * as fromSchoolData from './state/school-data/reducers';
 //import { reducers } from './state/school-data/reducers/index';
-
-import { EffectsModule } from '@ngrx/effects';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { SchoolDataEffects } from './state/school-data/effects/school-data-effects';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './shared/components/material.module';
 import { StateModule } from './state/state.module';
 import { AppRoutingModule } from './app-routing.module';
+
+import { NavbarModule } from './shared/components/navbar/navbar.module';
+
 import { AppGuard } from './app.guard';
 import { AppComponent } from './app.component';
 import { HighchartMapComponent } from './highchart-map/highchart-map.component';
@@ -26,6 +28,7 @@ import { HighchartBarComponent } from './highchart-bar/highchart-bar.component';
 import { DataCardComponent } from './shared/components/data-card/data-card.component';
 import { appReducer, appMetaReducers } from './state/app.reducer';
 import { MapChartComponent } from './shared/components/charts/map-chart/map-chart.component'
+
 
 @NgModule({
   declarations: [
@@ -48,7 +51,9 @@ import { MapChartComponent } from './shared/components/charts/map-chart/map-char
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService
     ),
+    FlexLayoutModule,
     MaterialModule,
+    NavbarModule,
     AppRoutingModule,
     StateModule/*,
     StoreModule.forRoot(appReducer, { metaReducers: appMetaReducers }),

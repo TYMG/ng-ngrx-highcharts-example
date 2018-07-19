@@ -33,7 +33,7 @@ export class HighchartMapComponent implements OnInit {
 
 
   constructor(private mapDataService: MapDataService) {
-    this.test = { fieldName: 'Military Experience', value: 100 };
+  /*  this.test = { fieldName: 'Military Experience', value: 100 };
 
     var Highcharts = require('highcharts/highstock');
     require('highcharts/modules/map')(Highcharts);
@@ -189,7 +189,7 @@ export class HighchartMapComponent implements OnInit {
           }
         }
       });
-    });
+    });*/
   }
 
   ngOnInit() {
