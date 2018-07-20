@@ -1,6 +1,8 @@
 <header class="page-header">
 	<div class="page-header-banner" fxLayout="row" fxHide.lt-lg="TRUE">
-		<a class="logo">AAMC</a>
+		<div fxFlex="25%">
+			<a class="logo">AAMC</a>
+		</div>
 		<div fxFlex="85%"></div>
 		<div id="navbar__dd" fxFlexAlign="end">
 			<button mat-button [matMenuTriggerFor]="menu">Matt Green</button>
@@ -15,7 +17,7 @@
 		<div fxFlex="25%">
 			<a class="logo">AAMC</a>
 		</div>
-		<div fxFlex="55%"></div>
+		<div fxFlex="65%"></div>
 		<div id="navbar__dd" fxFlexAlign="end">
 			<button mat-button [matMenuTriggerFor]="menu">Matt Green</button>
 			<mat-menu #menu="matMenu">
