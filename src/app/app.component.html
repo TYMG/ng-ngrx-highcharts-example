@@ -1,8 +1,49 @@
 <div id="app__main" fxLayout="column">
+	<div>
 		<navbar>
 		</navbar>
-		<app-footer>
-		</app-footer>
+	</div>
+	<div id="app__main-content" fxFlex="90%" fxHide.lt-md="TRUE">
+		<mat-sidenav-container>
+			<mat-sidenav mode="side" opened>
+				<div id="side-nav" class="flex-col">
+					<mat-list>
+						<div fxLayout="row">
+							<mat-icon fxFlex="20%">home</mat-icon>
+							<h3 class="app__side-nav__content" fxFlex="60%"> Home</h3>
+							<mat-icon>keyboard_arrow_right</mat-icon>
+						</div>
+						<mat-divider></mat-divider>
+						<mat-list-item> <a routerLink="/">Home Page</a> </mat-list-item>
+						<mat-list-item> <a routerLink="/">Med Survey</a> </mat-list-item>
+						<div fxLayout="row">
+							<mat-icon fxFlex="20%">equalizer</mat-icon>
+							<h3 class="app__side-nav__content" fxFlex="60%">Reports</h3>
+							<mat-icon>keyboard_arrow_right</mat-icon>
+						</div>
+						<mat-divider></mat-divider>
+						<mat-list-item> <a routerLink="/">Dashboard (Home)</a> </mat-list-item>
+						<mat-list-item> <a routerLink="/chart/bar">Bar Chart</a> </mat-list-item>
+						<mat-list-item> <a routerLink="/chart/map">Map Chart</a> </mat-list-item>
+						<mat-list-item> <a routerLink="/ses-disadvantaged">SES Disadvantaged</a> </mat-list-item>
+					</mat-list>
+				</div>
+			</mat-sidenav>
+			<mat-sidenav-content>
+				<div *ngIf="loading$ | async ; else showRouter">
+					<mat-spinner></mat-spinner>
+				</div>
+				<div class="main-route">
+					<ng-template #showRouter>
+						<router-outlet></router-outlet>
+					</ng-template>
+				</div>
+			</mat-sidenav-content>
+			<mat-sidenav position="end" mode="side" opened style='background-color:lightgrey'></mat-sidenav>
+		</mat-sidenav-container>
+	</div>
+	<app-footer>
+	</app-footer>
 </div>
 
 <!--The content below is only a placeholder and can be replaced.
