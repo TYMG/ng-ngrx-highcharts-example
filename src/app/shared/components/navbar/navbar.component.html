@@ -1,38 +1,32 @@
 <header class="page-header">
-	<div class="page-header-banner" fxLayout="column" fxHide.lt-lg="TRUE">
-		<div fxFlex="40%" fxLayout="row">
-			<a class="logo">AAMC</a>
-		</div>
-		<div class="border-white" fxLayout="row">
-			<div fxFlex="95%">
+	<div class="page-header-banner" fxLayout="row" fxHide.lt-lg="TRUE">
+		<div fxFlex="25%">
+			<div fxLayout="column">
+				<a class="logo">AAMC</a>
 				<p class="navbar__subtitle">AMCAS For Schools</p>
 			</div>
-			<div id="navbar__dd" fxFlexAlign="end">
-				<button mat-button [matMenuTriggerFor]="menu">Matt Green</button>
-				<mat-menu #menu="matMenu">
-					<button mat-menu-item>Account</button>
-					<button mat-menu-item>Sign Off</button>
-				</mat-menu>
-			</div>
+		</div>
+		<div fxFlex="85%"></div>
+		<div id="navbar__dd" fxFlexAlign="end">
+			<button mat-button [matMenuTriggerFor]="menu">Matt Green</button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item>Account</button>
+				<button mat-menu-item>Sign Off</button>
+			</mat-menu>
 		</div>
 	</div>
 
-	<div class="page-header-banner" fxLayout="column" fxHide.gt-md="TRUE">
-		<div fxFlex="40%" fxLayout="row">
+	<div class="page-header-banner" fxLayout="row" fxHide.gt-md="TRUE">
+		<div fxFlex="25%">
 			<a class="logo">AAMC</a>
 		</div>
-		<div class="border-white" fxLayout="row">
-			<div fxFlex="85%">
-				<p class="navbar__subtitle">AMCAS For Schools</p>
-			</div>
-			<div id="navbar__dd" fxFlexAlign="end">
-				<button mat-button [matMenuTriggerFor]="menu">Matt Green</button>
-				<mat-menu #menu="matMenu">
-					<button mat-menu-item>Account</button>
-					<button mat-menu-item>Sign Off</button>
-				</mat-menu>
-			</div>
+		<div fxFlex="65%"></div>
+		<div id="navbar__dd" fxFlexAlign="end">
+			<button mat-button [matMenuTriggerFor]="menu">Matt Green</button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item>Account</button>
+				<button mat-menu-item>Sign Off</button>
+			</mat-menu>
 		</div>
 	</div>
-
 </header>
