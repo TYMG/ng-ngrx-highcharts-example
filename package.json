@@ -35,6 +35,7 @@
     "core-js": "^2.5.4",
     "highcharts": "^6.1.0",
     "hoek": "^5.0.3",
+    "material-design-icons": "^3.0.1",
     "ng2-highcharts": "^1.2.0",
     "ngrx-store-freeze": "^0.2.3",
     "rxjs": "^6.1.0",

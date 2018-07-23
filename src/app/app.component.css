@@ -74,9 +74,7 @@ mat-sidenav-content{
         font-size: 15px;
     }
   
-    mat-sidenav-content{
-        margin: 0 10px;
-    }
+ 
 
     mat-sidenav {
         width: 125px;

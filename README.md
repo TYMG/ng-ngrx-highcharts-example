@@ -34,3 +34,7 @@ In order to properly utilize the HighMaps code snippet I had to install the foll
 * npm install @types/node --save-dev  -> To use the require syntax
 * npm install --save @uirouter/angular  -> To use the $q 
 * npm install --save-dev @types/jquery -> To use the $ operator
+
+To get the Material Icons to work
+* npm install material-design-icons --save
+* Add @import 'node_modules/material-design-icons/iconfont/material-icons.css'; to styles.css
