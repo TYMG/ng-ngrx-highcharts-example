@@ -1,0 +1,15 @@
+div#msg-brd__main{
+    height:250px;
+    overflow-y: scroll;
+}
+
+.msg-brd__msg {
+    padding:1%;
+    border: 1px solid purple;
+    border-radius: 5px;
+    margin:1%;
+}
+
+ul.qls__list li{
+    padding:2% 0;
+}

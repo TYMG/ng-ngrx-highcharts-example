@@ -28,7 +28,8 @@ import { HighchartBarComponent } from './highchart-bar/highchart-bar.component';
 import { DataCardComponent } from './shared/components/data-card/data-card.component';
 import { appReducer, appMetaReducers } from './state/app.reducer';
 import { MapChartComponent } from './shared/components/charts/map-chart/map-chart.component';
-import { FooterModule } from './shared/components/footer/footer.module'
+import { FooterModule } from './shared/components/footer/footer.module';
+import { HomeComponent } from './home/home.component'
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FooterModule } from './shared/components/footer/footer.module'
     DashboardComponent,
     HighchartBarComponent,
     DataCardComponent,
-    MapChartComponent
+    MapChartComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppGuard } from './app.guard'
 
+import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HighchartBarComponent } from './highchart-bar/highchart-bar.component';
 import { HighchartMapComponent } from './highchart-map/highchart-map.component';
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'chart/bar', component: HighchartBarComponent },
   { path: 'chart/map', component: HighchartMapComponent },
   { path: 'ses-disadvantaged', component: SesDisadvantagedComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', component: HomeComponent },
   { path: '**', component: DashboardComponent }
 ];
 
