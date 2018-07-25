@@ -3,15 +3,8 @@
     height: 100vh;
 }
 
-#app__main-content mat-sidenav-container{
-    width: 100%;
-    height: 100%;
-}
-
-#main{
-    display: flex;
-    flex-direction:column;
-    flex: 1;
+#main-content__lsn{
+    border-right: 1px solid darkgrey;
 }
 
 h3.app__side-nav__content {
@@ -19,28 +12,22 @@ h3.app__side-nav__content {
     margin: 0;
 } 
 
-mat-sidenav-content{
-        margin: 0 150px;
-    }
+div#app__main-content div {
+    height: 100%;
+}
 
 @media (max-width: 2000px) {
 
     mat-list-item a{
-        font-size: 15px;
+        font-size: 20px;
     }
-    mat-sidenav-content{
-        margin: 0 50px;
-    }
-
-    mat-sidenav {
-        width: 175px;
-    }
+  
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1500px) {
 
     h3.app__side-nav__content{
-        font-size: 15px;
+        font-size: 17px;
     }
 
     .app__side-nav__content{
@@ -50,13 +37,7 @@ mat-sidenav-content{
     mat-list-item a{
         font-size: 15px;
     }
-    mat-sidenav-content{
-        margin: 0 50px;
-    }
 
-    mat-sidenav {
-        width: 150px;
-    }
 }
 
 
@@ -73,49 +54,4 @@ mat-sidenav-content{
     mat-list-item a{
         font-size: 15px;
     }
-  
- 
-
-    mat-sidenav {
-        width: 125px;
-    }
-}
-
-
-#header {
-    order: -1;
-    background-color: blue;
-    display: flex;
-    flex-direction: row;
-}
-
-
-
-mat-sidenav-container {
-   background-color: lightgray; 
-}
-
-#user-dd{
-    flex: 1;
-}
-
-#content {
-    flex: 1;
-}
-
-.deep-purple{
-    background-color: purple;
-    color: white;
-}
-
-.example-icon {
-  padding: 0 14px;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-}
-
-.example-footer {
-    background-color: red;
 }

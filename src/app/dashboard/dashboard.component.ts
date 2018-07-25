@@ -16,21 +16,21 @@ import { isSpinnerShowing } from '../state/shared/reducers'
 })
 export class DashboardComponent implements OnInit {
 
-  localSchoolData: SchoolData;
+/*  localSchoolData: SchoolData;
   schoolDataFields$: Observable<DataField[]>;
   dataFields: DataField[];
   nationalSchoolData: SchoolData;
   localSchoolData$: Observable<SchoolData>;
-  loading$: Observable<boolean>;
+  loading$: Observable<boolean>;*/
 
 
   constructor(private localStore: Store<fromStore.SchoolDataState>) {
-    //this.localSchoolData$ = this.localStore.select(fromStore.getLocalSchoolState);
+  /*  //this.localSchoolData$ = this.localStore.select(fromStore.getLocalSchoolState);
     this.localSchoolData$ = localStore.pipe(select(fromStore.getLocalSchoolState)) as Observable<SchoolData>;
 
     /*    this.localSchoolData$.subscribe(data => {
            this.schoolData = data.schoolData
-        });*/
+        });
     console.log(this.localSchoolData$);
     // this.localStore.pipe(
     //   select(fromStore.getLocalSchoolState),
@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
     this.schoolDataFields$ = this.localStore.pipe(select(fromStore.getSchoolDataField)) as Observable<DataField[]>;
 
     this.localStore.pipe(select(fromStore.getSchoolDataField),
-      map((retrievedSchoolDataField: DataField[]) => this.dataFields = retrievedSchoolDataField));
+      map((retrievedSchoolDataField: DataField[]) => this.dataFields = retrievedSchoolDataField));*/
   }
 
   ngOnInit() {

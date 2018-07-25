@@ -16,13 +16,13 @@ import { isSpinnerShowing } from './state/shared/reducers'
 })
 export class AppComponent {
   title = 'app';
-  loading$: Observable<boolean>;
+  //loading$: Observable<boolean>;
 
 
   constructor(private store: Store<SchoolDataState>) {
-    this.store.dispatch(new SchoolDataActions.LoadData);
+  /*  this.store.dispatch(new SchoolDataActions.LoadData);
     this.loading$ = store.pipe(select(isSpinnerShowing));
-
+*/
     //this.store.dispatch(new SchoolDataActions.LoadNationalData);
   }
 }

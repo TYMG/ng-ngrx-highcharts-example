@@ -11,7 +11,7 @@ import { HighchartMapComponent } from './highchart-map/highchart-map.component';
 import { SesDisadvantagedComponent } from './ses-disadvantaged/ses-disadvantaged.component';
 
 const routes: Routes = [
-  { path: 'dashboard', canActivate: [AppGuard], component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'chart/bar', component: HighchartBarComponent },
   { path: 'chart/map', component: HighchartMapComponent },
   { path: 'ses-disadvantaged', component: SesDisadvantagedComponent },

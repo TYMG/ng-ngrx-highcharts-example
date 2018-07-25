@@ -4,78 +4,57 @@
 		</navbar>
 	</div>
 	<div id="app__main-content" fxFlex="90%">
-		<mat-sidenav-container fxHide.lt-sm="TRUE">
-			<mat-sidenav mode="side" opened>
-				<div id="side-nav" class="flex-col">
-					<mat-list>
-						<div fxLayout="row">
-							<mat-icon fxFlex="30%" fxLayoutAlign="start">home</mat-icon>
-							<h3 class="app__side-nav__content" fxFlex="50%"> Home</h3>
-							<mat-icon>keyboard_arrow_right</mat-icon>
-						</div>
-						<mat-divider></mat-divider>
-						<mat-list-item> <a routerLink="/">Home Page</a> </mat-list-item>
-						<mat-list-item> <a routerLink="/">Med Survey</a> </mat-list-item>
-						<div fxLayout="row">
-							<mat-icon fxFlex="30%">equalizer</mat-icon>
-							<h3 class="app__side-nav__content" fxFlex="60%">Reports</h3>
-							<mat-icon>keyboard_arrow_right</mat-icon>
-						</div>
-						<mat-divider></mat-divider>
-						<mat-list-item> <a routerLink="/">Dashboard</a> </mat-list-item>
-						<mat-list-item> <a routerLink="/chart/bar">Bar Chart</a> </mat-list-item>
-						<mat-list-item> <a routerLink="/chart/map">Map Chart</a> </mat-list-item>
-						<mat-list-item> <a routerLink="/ses-disadvantaged">SES</a> </mat-list-item>
-					</mat-list>
-				</div>
-			</mat-sidenav>
-			<mat-sidenav-content class="scroll">
-				<div *ngIf="loading$ | async ; else showRouter">
-					<mat-spinner></mat-spinner>
-				</div>
-				<div class="main-route">
-					<ng-template #showRouter>
-						<router-outlet></router-outlet>
-					</ng-template>
-				</div>
-			</mat-sidenav-content>
-			<mat-sidenav position="end" mode="side" opened style='background-color:lightgrey'></mat-sidenav>
-		</mat-sidenav-container>
-		<div id="main-content__mobile" fxHide.gt-xs="TRUE">
-			<div fxLayout="column">
-				<div fxFlex="10%">
-					<mat-toolbar>
-						<div fxLayout="row">
-							<button mat-button [matMenuTriggerFor]="menu"><mat-icon fxFlex="30%">dehaze</mat-icon></button>
-							<mat-menu #menu="matMenu">
-								<button mat-menu-item [matMenuTriggerFor]="home">Home</button>
-								<button mat-menu-item [matMenuTriggerFor]="reports">Reports</button>
-							</mat-menu>
-
-							<mat-menu #home="matMenu">
-								<button mat-menu-item>Home Page</button>
-								<button mat-menu-item>Med Survey</button>
-							</mat-menu>
-
-							<mat-menu #reports="matMenu">
-								<button mat-menu-item>Dashboard</button>
-								<button mat-menu-item>Bar Chart</button>
-								<button mat-menu-item>SES</button>
-								<button mat-menu-item>Choose Med School</button>
-							</mat-menu>
-						</div>
-					</mat-toolbar>
-				</div>
-				<div>
-					<div *ngIf="loading$ | async ; else showRouter">
-						<mat-spinner></mat-spinner>
+		<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
+			<div id="main-content__lsn" fxFlex="15%" fxShow="True" fxHide.lt-sm="True">
+				<mat-list>
+					<div fxLayout="row">
+						<mat-icon fxFlex="30%" fxLayoutAlign="start">home</mat-icon>
+						<h3 class="app__side-nav__content" fxFlex="50%"> Home</h3>
+						<mat-icon>keyboard_arrow_right</mat-icon>
 					</div>
-					<div class="main-route">
-						<ng-template #showRouter>
-							<router-outlet></router-outlet>
-						</ng-template>
+					<mat-divider></mat-divider>
+					<mat-list-item> <a routerLink="/">Home Page</a> </mat-list-item>
+					<mat-list-item> <a routerLink="/">Med Survey</a> </mat-list-item>
+					<div fxLayout="row">
+						<mat-icon fxFlex="30%">equalizer</mat-icon>
+						<h3 class="app__side-nav__content" fxFlex="60%">Reports</h3>
+						<mat-icon>keyboard_arrow_right</mat-icon>
 					</div>
-				</div>
+					<mat-divider></mat-divider>
+					<mat-list-item> <a routerLink="/dashboard">Dashboard</a> </mat-list-item>
+					<mat-list-item> <a routerLink="/chart/bar">Bar Chart</a> </mat-list-item>
+					<mat-list-item> <a routerLink="/chart/map">Map Chart</a> </mat-list-item>
+					<mat-list-item> <a routerLink="/ses-disadvantaged">SES</a> </mat-list-item>
+				</mat-list>
+			</div>
+			<div id="main-content__tn" fxShow="True" fxFlex="56px" fxHide.gt-xs="True">
+				<mat-toolbar>
+					<div fxLayout="row">
+						<button mat-button [matMenuTriggerFor]="menu"><mat-icon fxFlex="30%">dehaze</mat-icon></button>
+						<mat-menu #menu="matMenu">
+							<button mat-menu-item [matMenuTriggerFor]="home">Home</button>
+							<button mat-menu-item [matMenuTriggerFor]="reports">Reports</button>
+						</mat-menu>
+
+						<mat-menu #home="matMenu">
+							<button mat-menu-item>Home Page</button>
+							<button mat-menu-item>Med Survey</button>
+						</mat-menu>
+
+						<mat-menu #reports="matMenu">
+							<button mat-menu-item>Dashboard</button>
+							<button mat-menu-item>Bar Chart</button>
+							<button mat-menu-item>SES</button>
+							<button mat-menu-item>Choose Med School</button>
+						</mat-menu>
+					</div>
+				</mat-toolbar>
+			</div>
+			<div fxFlex>
+				<router-outlet></router-outlet>
+			</div>
+			<div  fxFlex="5%" fxHide.lt-sm="True">
+				Right Content
 			</div>
 		</div>
 	</div>
@@ -130,6 +109,6 @@
 		</mat-sidenav-content>
 		<mat-sidenav position="end" mode="side" opened style='background-color:lightgrey'></mat-sidenav>
 	</mat-sidenav-container>
-	<mat-toolbar class="example-footer">Footer</mat-toolbar>
+	<mat-toolbar >Footer</mat-toolbar>
 </div>
 -->

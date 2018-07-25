@@ -1,7 +1,31 @@
 <div id='dashboard-main'>
 	<div id='dashboard-title'>
-		<mat-toolbar>
-			<span>My Application</span>
+		<mat-toolbar class="std-color">
+			<div id="dashboard-filter" fxLayout="row" fxLayoutGap="10px">
+				<div>
+					<input [matDatepicker]="myDatepicker">
+					<mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+					<mat-datepicker #myDatepicker></mat-datepicker>
+				</div>
+				<div>
+					Application Year
+				</div>
+				<div>
+					Actions
+				</div>
+				<div>
+					Sex
+				</div>
+				<div>
+					SLR
+				</div>
+				<div>
+					Program
+				</div>
+				<div>
+					National Schools
+				</div>
+			</div>
 		</mat-toolbar>
 	</div>
 	<div id='dashboard-filters'>
