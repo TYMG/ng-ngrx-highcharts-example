@@ -22,26 +22,25 @@ import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { AppGuard } from './app.guard';
 import { AppComponent } from './app.component';
 import { HighchartMapComponent } from './highchart-map/highchart-map.component';
-import { SesDisadvantagedComponent } from './ses-disadvantaged/ses-disadvantaged.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { HighchartBarComponent } from './highchart-bar/highchart-bar.component';
 import { DataCardComponent } from './shared/components/data-card/data-card.component';
 import { appReducer, appMetaReducers } from './state/app.reducer';
 import { MapChartComponent } from './shared/components/charts/map-chart/map-chart.component';
 import { FooterModule } from './shared/components/footer/footer.module';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { ReportModule } from './report/report.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HighchartMapComponent,
-    SesDisadvantagedComponent,
-    DashboardComponent,
     HighchartBarComponent,
     DataCardComponent,
     MapChartComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +58,8 @@ import { HomeComponent } from './home/home.component'
     NavbarModule,
     AppRoutingModule,
     StateModule,
-    FooterModule/*,
+    FooterModule,
+    ReportModule/*,
     StoreModule.forRoot(appReducer, { metaReducers: appMetaReducers }),
     StoreModule.forFeature('schoolData', fromSchoolData.reducers),
     EffectsModule.forRoot([SchoolDataEffects])*/

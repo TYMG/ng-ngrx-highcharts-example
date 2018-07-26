@@ -5,26 +5,34 @@
 	</div>
 	<div id="app__main-content" fxFlex="90%">
 		<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutGap.lt-sm="10px">
-			<div id="main-content__lsn" fxFlex="15%" fxShow="True" fxHide.lt-sm="True">
+			<div id="main-content__lsn" class="std-color" fxFlex="15%" fxShow="True" fxHide.lt-sm="True">
 				<mat-list>
-					<div fxLayout="row">
-						<mat-icon fxFlex="30%" fxLayoutAlign="start">home</mat-icon>
-						<h3 class="app__side-nav__content" fxFlex="50%"> Home</h3>
+					<div class="lsn__section-header" fxLayout="row">
+						<mat-icon fxFlex="30%" fxLayoutAlign="center">home</mat-icon>
+						<h3 class="lsn__header" fxFlex="40%"> Home</h3>
 						<mat-icon>keyboard_arrow_right</mat-icon>
 					</div>
 					<mat-divider></mat-divider>
 					<mat-list-item> <a routerLink="/">Home Page</a> </mat-list-item>
 					<mat-list-item> <a routerLink="/">Med Survey</a> </mat-list-item>
-					<div fxLayout="row">
-						<mat-icon fxFlex="30%">equalizer</mat-icon>
-						<h3 class="app__side-nav__content" fxFlex="60%">Reports</h3>
+					<div class="lsn__section-header" fxLayout="row">
+						<mat-icon fxFlex="30%" fxLayoutAlign="center">equalizer</mat-icon>
+						<h3 class="lsn__header" fxFlex="40%">Reports</h3>
 						<mat-icon>keyboard_arrow_right</mat-icon>
 					</div>
 					<mat-divider></mat-divider>
-					<mat-list-item> <a routerLink="/dashboard">Dashboard</a> </mat-list-item>
+					<mat-list-item> <a routerLink="reports/dashboard">Dashboard</a> </mat-list-item>
 					<mat-list-item> <a routerLink="/chart/bar">Bar Chart</a> </mat-list-item>
 					<mat-list-item> <a routerLink="/chart/map">Map Chart</a> </mat-list-item>
-					<mat-list-item> <a routerLink="/ses-disadvantaged">SES</a> </mat-list-item>
+					<mat-list-item> <a routerLink="reports/ses-disadvantaged">SES</a> </mat-list-item>
+					<mat-list-item> <a routerLink="reports/aggregate">Aggregate</a> </mat-list-item>
+					<mat-list-item> <a routerLink="reports/summary">Summary</a> </mat-list-item>
+					<div class="lsn__section-header" fxLayout="row">
+						<mat-icon fxFlex="30%" fxLayoutAlign="center">insert_emoticon</mat-icon>
+						<h3 class="lsn__header" fxFlex="40%">User Management</h3>
+						<mat-icon>keyboard_arrow_right</mat-icon>
+					</div>
+					<mat-list-item> <a routerLink="/overview">Overview</a> </mat-list-item>
 				</mat-list>
 			</div>
 			<div id="main-content__tn" fxShow="True" fxFlex="56px" fxHide.gt-xs="True">
@@ -53,8 +61,7 @@
 			<div fxFlex>
 				<router-outlet></router-outlet>
 			</div>
-			<div  fxFlex="5%" fxHide.lt-sm="True">
-				Right Content
+			<div fxFlex="5%" fxHide.lt-sm="True">
 			</div>
 		</div>
 	</div>

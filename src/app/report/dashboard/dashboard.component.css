@@ -2,8 +2,8 @@
     padding:1%;
 }
 
-#dashboard-filters {
-    padding: 1% 0;
+div#dashboard__filter {
+    width: 100%;
 }
 
 #dashboard-cards {
@@ -15,4 +15,8 @@
 
 #dashboard-cards > data-card {
     flex-basis: 25%;  /*May not work on most browsers */
+}
+
+.inner-tab {
+    padding: 0 5%;
 }

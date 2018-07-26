@@ -7,7 +7,13 @@
     border-right: 1px solid darkgrey;
 }
 
-h3.app__side-nav__content {
+div.lsn__section-header {
+    height:40px;
+    border: 1px solid darkgrey;
+    background-color: lightgrey;
+}
+
+h3.lsn__header {
     padding-top: 1px;
     margin: 0;
 } 
@@ -16,21 +22,28 @@ div#app__main-content div {
     height: 100%;
 }
 
+mat-list.mat-list{
+    padding: 0;
+}
+
 @media (max-width: 2000px) {
 
+    h3.lsn__header {
+        font-size:15px;
+    }
     mat-list-item a{
-        font-size: 20px;
+        font-size: 15px;
     }
   
 }
 
 @media (max-width: 1500px) {
 
-    h3.app__side-nav__content{
-        font-size: 17px;
+    h3.lsn__header{
+        font-size: 15px;
     }
 
-    .app__side-nav__content{
+    .lsn__header{
         padding-top: 5px;
     }
 
@@ -43,11 +56,11 @@ div#app__main-content div {
 
 @media (max-width: 750px) {
 
-    h3.app__side-nav__content{
+    h3.lsn__header{
         font-size: 15px;
     }
 
-    .app__side-nav__content{
+    .lsn__header{
         padding-top: 5px;
     }
 

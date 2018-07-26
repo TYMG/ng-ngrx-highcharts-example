@@ -1,51 +1,53 @@
-<div id='dashboard-main'>
-	<div id='dashboard-title'>
+<div id='dashboard-main' fxLayout="column">
+	<div id='dashboard-title' fxFlex="10%">
 		<mat-toolbar class="std-color">
-			<div id="dashboard-filter" fxLayout="row" fxLayoutGap="10px">
-				<div>
-					<input [matDatepicker]="myDatepicker">
+			<div id="dashboard__filter" fxLayout="row" fxLayoutGap="10px">
+				<div fxFlex="15%" fxLayout="row">
+					As Of:&nbsp;
+					<input fxFlex="50%" [matDatepicker]="myDatepicker">
 					<mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
 					<mat-datepicker #myDatepicker></mat-datepicker>
 				</div>
-				<div>
+				<div fxFlex="20%">
 					Application Year
 				</div>
-				<div>
+				<div fxFlex="15%">
 					Actions
 				</div>
-				<div>
+				<div fxFlex="10%">
 					Sex
 				</div>
-				<div>
+				<div fxFlex="10%">
 					SLR
 				</div>
-				<div>
+				<div fxFlex="15%">
 					Program
 				</div>
-				<div>
-					National Schools
+				<div fxFlex="15%">
+					<mat-checkbox>National Schools?</mat-checkbox>
 				</div>
 			</div>
 		</mat-toolbar>
 	</div>
-	<div id='dashboard-filters'>
-		<mat-chip-list #chipList>
-			<mat-chip selectable="true" removable="true" class="border-purple">
-				Accepted (Application Status)
-				<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-			</mat-chip>
-			<mat-chip color="primary">
-				Female
-			</mat-chip>
-			<mat-chip color="primary">
-				In-State
-			</mat-chip>
-		</mat-chip-list>
-	</div>
-	<div id='dashboard-cards'>
-		<h1>{{dataFields}}</h1>
-		<data-card *ngFor="let localSchoolDataField of schoolDataFields$ | async" [dataField]="localSchoolDataField">
-		</data-card>
+	<div id='dashboard__data' fxFlex>
+		<mat-tab-group>
+			<mat-tab label="One">
+				<mat-tab-group>
+					<mat-tab label="Graph">
+						<h1>Some tab content</h1>
+						<p>...</p>
+					</mat-tab>
+					<mat-tab label="Table">
+						<h1>Some more tab content</h1>
+						<p>...</p>
+					</mat-tab>
+				</mat-tab-group>
+			</mat-tab>
+			<mat-tab label="Two">
+				<h1>Some more tab content</h1>
+				<p>...</p>
+			</mat-tab>
+		</mat-tab-group>
 		<!--<mat-card *ngFor="let localSchoolDataField of localSchoolData.schoolData">
 			<mat-card-subtitle class='display-card-title'>{{localSchoolDataField.fieldName}}</mat-card-subtitle>
 			<mat-card-content style='text-align:center'>

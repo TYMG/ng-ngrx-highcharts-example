@@ -3,11 +3,11 @@ import { Observable } from 'rxjs';
 import { filter, map, reduce } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
 
-import { SchoolData, DataField } from '../shared/model/school-data';
-import { SchoolDataService } from '../shared/services/school-data.service';
-import * as SchoolDataActions from '../state/school-data/actions/school-data-actions';
-import * as fromStore from '../state/school-data/reducers';
-import { isSpinnerShowing } from '../state/shared/reducers'
+import { SchoolData, DataField } from '../../shared/model/school-data';
+import { SchoolDataService } from '../../shared/services/school-data.service';
+import * as SchoolDataActions from '../../state/school-data/actions/school-data-actions';
+import * as fromStore from '../../state/school-data/reducers';
+import { isSpinnerShowing } from '../../state/shared/reducers'
 
 @Component({
   selector: 'app-dashboard',
