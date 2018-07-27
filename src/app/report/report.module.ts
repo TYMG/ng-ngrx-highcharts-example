@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+
 import { MaterialModule } from '../shared/components/material.module';
 
 import { SesDisadvantagedComponent } from './ses-disadvantaged/ses-disadvantaged.component';
@@ -11,7 +14,8 @@ import { AggregateReportComponent } from './aggregate-report/aggregate-report.co
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   declarations: [
     SesDisadvantagedComponent,

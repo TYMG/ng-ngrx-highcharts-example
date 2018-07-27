@@ -1,0 +1,12 @@
+#stats__tabs{
+    width: 100%;
+}
+
+.stats__table{
+    height:400px;
+    overflow: auto;
+}
+
+table.mat-table {
+    width: 100%;
+}

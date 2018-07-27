@@ -1,3 +1,128 @@
-<p>
-  summary-report works!
-</p>
+<div id="summary-report__main" fxLayout="column" fxLayoutGap="10px">
+	<div fxFlex="10%">
+		AMCAS Choose Your Medical School Summary Report
+	</div>
+	<div fxFlex="15%">
+		Filter Component
+	</div>
+	<div id="summary-report__stats" fxFlex>
+		<div fxLayout="column" fxLayoutGap="20px">
+			<div fxFlex="250px">
+				<mat-card>
+					<mat-card-content>
+						<div fxLayout="column" fxLayoutGap="10px">
+							<div fxLayout="row">
+								<div>Total # of Applicants:</div>
+								<div>3,261</div>
+							</div>
+							<div fxLayout="row">
+								<p>Total Applicants # of Your Accepted Applicants:</p>
+								<p>3,261</p>
+							</div>
+							<div>
+								<mat-expansion-panel>
+									<mat-expansion-panel-header>
+										<mat-panel-title>
+											# of Applicants who selected your school: 3
+										</mat-panel-title>
+									</mat-expansion-panel-header>
+									<div fxLayout="column">
+										<div>
+											<p># Plan to Enroll: 2</p>
+										</div>
+										<div>
+											<p># Commit to Enroll: 1</p>
+										</div>
+									</div>
+								</mat-expansion-panel>
+							</div>
+							<div>
+								<mat-expansion-panel>
+									<mat-expansion-panel-header>
+										<mat-panel-title>
+											# of Applicants who selected another school: 3
+										</mat-panel-title>
+									</mat-expansion-panel-header>
+									<div fxLayout="column">
+										<div fxLayout="row">
+											<p># Plan to Enroll:</p>
+											<p>2</p>
+										</div>
+										<div>
+											<p># Commit to Enroll:</p>
+											<p>1</p>
+										</div>
+									</div>
+								</mat-expansion-panel>
+							</div>
+						</div>
+					</mat-card-content>
+				</mat-card>
+			</div>
+			<div id="stats__tabs" class="std-color shadow" fxFlex="500px">
+				<mat-tab-group>
+					<mat-tab label="Accepted Applicants That Selected Your Medical School">
+						<div class="stats__table" >
+							<table mat-table [dataSource]="selectedMedSchoolDataSource" class="mat-elevation-z4">
+
+								<!-- First Name Column -->
+								<ng-container matColumnDef="fname">
+									<th mat-header-cell *matHeaderCellDef> First Name </th>
+									<td mat-cell *matCellDef="let element"> {{element.fname}} </td>
+								</ng-container>
+
+								<!-- Last Name Column -->
+								<ng-container matColumnDef="lname">
+									<th mat-header-cell *matHeaderCellDef> Last Name </th>
+									<td mat-cell *matCellDef="let element"> {{element.lname}} </td>
+								</ng-container>
+
+								<!-- AAMC ID Column -->
+								<ng-container matColumnDef="aamcId">
+									<th mat-header-cell *matHeaderCellDef> AAMC ID </th>
+									<td mat-cell *matCellDef="let element"> {{element.aamcId}} </td>
+								</ng-container>
+
+								<!-- Program Type Column -->
+								<ng-container matColumnDef="programType">
+									<th mat-header-cell *matHeaderCellDef> Program Type </th>
+									<td mat-cell *matCellDef="let element"> {{element.programType}} </td>
+								</ng-container>
+
+								<!-- SLR Column -->
+								<ng-container matColumnDef="slr">
+									<th mat-header-cell *matHeaderCellDef> SLR </th>
+									<td mat-cell *matCellDef="let element"> {{element.slr}} </td>
+								</ng-container>
+
+								<!-- Sex Column -->
+								<ng-container matColumnDef="sex">
+									<th mat-header-cell *matHeaderCellDef> Sex </th>
+									<td mat-cell *matCellDef="let element"> {{element.sex}} </td>
+								</ng-container>
+
+								<!-- Applicant Selection Column -->
+								<ng-container matColumnDef="applicantSelection">
+									<th mat-header-cell *matHeaderCellDef> Applicant Selection </th>
+									<td mat-cell *matCellDef="let element"> {{element.applicantSelection}} </td>
+								</ng-container>
+
+								<!-- Program Type Column -->
+								<ng-container matColumnDef="selectionDate">
+									<th mat-header-cell *matHeaderCellDef> Selection Date </th>
+									<td mat-cell *matCellDef="let element"> {{element.selectionDate}} </td>
+								</ng-container>
+
+								<tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+								<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+							</table>
+						</div>
+					</mat-tab>
+					<mat-tab label="Accepted Applicants That Selected Another Medical School">
+						<p>...</p>
+					</mat-tab>
+				</mat-tab-group>
+			</div>
+		</div>
+	</div>
+</div>
